@@ -1,0 +1,1 @@
+insert into atividade(nome) values ('Visista Técnica GDG 2018');
