@@ -1,7 +1,6 @@
 package br.edu.iftm.extensaoSTS.resources;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +21,12 @@ public class AtividadeResource {
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> fnd(@PathVariable Integer id) {
-		Atividade atividade = service.buscar(id);
-		return ResponseEntity.ok().body(atividade);
+		try {
+			Atividade atividade = service.buscar(id);
+			return ResponseEntity.ok().body(atividade);
+		} catch (NoSuchElementException e) {
+			return ResponseEntity.notFound().build();
+		}
 
 	}
 
