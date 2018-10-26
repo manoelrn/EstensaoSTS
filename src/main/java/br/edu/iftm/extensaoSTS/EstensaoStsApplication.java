@@ -17,6 +17,7 @@ public class EstensaoStsApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(EstensaoStsApplication.class, args);
 	}
+	
 
 	@Override
 	public void run(String... args) throws Exception {
